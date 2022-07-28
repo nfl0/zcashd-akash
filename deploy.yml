@@ -15,6 +15,9 @@ services:
       - 'apt-get update ; apt-get upgrade -y ; apt-get install -y  curl ; curl -s https://raw.githubusercontent.com/nfl0/zcashd-akash/main/start.sh | bash ; sleep infinity'   
     
     expose:
+      - port: 80
+        as: 80
+        to:
       - port: 22
         as: 22
         to:
