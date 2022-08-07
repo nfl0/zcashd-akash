@@ -6,7 +6,7 @@ services:
     image: ubuntu:latest
     
     env:
-      - "my_root_password=" # root password for ssh connection.
+      - "my_root_password=2sgq8MQNB9WESuC" # root password for ssh connection.
     
     command:
       - "bash"
