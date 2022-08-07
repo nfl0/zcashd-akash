@@ -18,15 +18,19 @@ services:
       - port: 80
         as: 80
         to:
+          - global: true
       - port: 22
         as: 22
         to:
+          - global: true
       - port: 8232
         as: 8232
         to:
+          - global: true
       - port: 8233
         as: 8233
         to:
+          - global: true
            
 profiles:
   compute:
