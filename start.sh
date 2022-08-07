@@ -19,5 +19,5 @@ echo "deb [arch=amd64] https://apt.z.cash/ buster main" | sudo tee /etc/apt/sour
 sudo apt-get update
 sudo apt-get install -y zcash
 zcash-fetch-params
-touch /root/.zcash/zcash.conf
+cp /usr/share/doc/zcash/examples/zcash.conf /root/.zcash
 zcashd
