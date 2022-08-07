@@ -6,11 +6,12 @@ services:
     image: ubuntu:latest
     
     env:
-      - "my_root_password=" # root password for ssh connection.
+      - "my_root_password=YourSuperGreatPasswordNumber_DO_NOT_USE_THIS_OR_YOU_WILL_GET_ROBBED_385593" # root password for ssh connection.
     
     command:
       - "bash"
       - "-c"
+      
     args:
       - 'apt-get update ; apt-get upgrade -y ; apt-get install -y  curl ; curl -s https://raw.githubusercontent.com/nfl0/zcashd-akash/main/start.sh | bash ; sleep infinity'   
     
