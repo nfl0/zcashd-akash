@@ -43,7 +43,7 @@ profiles:
     app:
       resources:
         cpu:
-          units: 3.0
+          units: 2.0
         memory:
           size: 3Gi
         storage:
@@ -52,7 +52,7 @@ profiles:
             size: 150Gi
             attributes:
                 persistent: true
-                class: beta1
+                class: beta2
          
   placement:
     akash: 
