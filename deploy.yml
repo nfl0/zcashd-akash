@@ -4,7 +4,12 @@ version: "2.0"
 services:
   app:
     image: ubuntu:latest
-    
+
+    params:
+      storage:
+        data:
+          mount: /root/.zcash/
+
     env:
       - "my_root_password=YourSuperGreatPasswordNumber_DO_NOT_USE_THIS_OR_YOU_WILL_GET_ROBBED_385593" # root password for ssh connection.
     
@@ -38,11 +43,16 @@ profiles:
     app:
       resources:
         cpu:
-          units: 2.0
+          units: 3.0
         memory:
-          size: 4Gi
+          size: 3Gi
         storage:
-          size: 100Gi
+          - size: 10Gi
+          - name: data
+            size: 150Gi
+            attributes:
+                persistent: true
+                class: beta1
          
   placement:
     akash: 
