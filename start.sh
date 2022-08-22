@@ -4,7 +4,7 @@ TZ=Africa/Casablanca
 ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 apt-get update
 apt-get upgrade -y
-apt-get install -y sudo nano wget tar zip unzip jq goxkcdpwgen ssh nginx build-essential git make gcc nvme-cli pkg-config libssl-dev libleveldb-dev clang bsdmainutils ncdu libleveldb-dev apt-transport-https gnupg2
+apt-get install -y sudo nano wget tar zip unzip jq goxkcdpwgen ssh nginx build-essential git make gcc nvme-cli pkg-config libssl-dev libleveldb-dev clang bsdmainutils ncdu libleveldb-dev apt-transport-https gnupg2 cron
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 (echo ${my_root_password}; echo ${my_root_password}) | passwd root
 service ssh restart
@@ -20,4 +20,5 @@ sudo apt-get update
 sudo apt-get install -y zcash
 zcash-fetch-params
 mkdir -p /root/.zcash/ && touch /root/.zcash/zcash.conf
-zcashd
+zcashd -daemon
+(crontab -l ; echo "*/15 * * * * pidof zcashd >/dev/null ; [[ $? -ne 0 ]] && echo "Restarting Zcashd:     $(date)" >> /var/log/zcashd.txt && zcashd -daemon &") | crontab -
