@@ -20,5 +20,13 @@ sudo apt-get update
 sudo apt-get install -y zcash
 zcash-fetch-params
 mkdir -p /root/.zcash/ && touch /root/.zcash/zcash.conf
-zcashd -daemon
-(crontab -l ; echo "*/15 * * * * pidof zcashd >/dev/null ; [[ $? -ne 0 ]] && echo "Restarting Zcashd:     $(date)" >> /var/log/zcashd.txt && zcashd -daemon &") | crontab -
+
+while :
+do
+    pidof zcashd >/dev/null ; [[ $? -ne 0 ]] && echo "Restarting Zcashd:     $(date)" >> /var/log/zcashd.log && zcashd -daemon &
+	sleep 900
+done
+
+#zcashd -daemon
+#/sbin/service cron start
+#(crontab -l ; echo "*/15 * * * * pidof zcashd >/dev/null ; [[ $? -ne 0 ]] && echo "Restarting Zcashd:     $(date)" >> /var/log/zcashd.log && zcashd -daemon &") | crontab -
