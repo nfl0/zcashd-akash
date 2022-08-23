@@ -1,7 +1,5 @@
 # zcashd-akash
-run zcashd on akash!
 
+Run your validator Zcash node on the akash network!
 
-
-///////////////// LATER-READ ///////////////////////
-https://docs.akash.network/features/persistent-storage/complete-persistent-storage-manifest-sdl-example
+zs18364y3j65h4ezah726rjr3gttvfff4rcsg3vfx9w6vwz0ctp3kltxux3use8llqxfj8ryr0gnsk
